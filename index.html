@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Profit Edge Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #050505;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 16px;
+      /* Background subtle red glows */
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(225, 27, 34, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(225, 27, 34, 0.05) 0%, transparent 50%);
+    }
+
+    .main-container {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ----- Top Logo Image ----- */
+    .logo-box {
+      width: 180px;
+      height: 180px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* Red glow matching theme */
+      filter: drop-shadow(0 0 15px rgba(225, 27, 34, 0.4)); 
+      border-radius: 50%;
+    }
+
+    /* ----- Typography ----- */
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .hero-title span {
+      color: #e11b22; /* Brand Red */
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: #a0a0a0;
+      text-align: center;
+      line-height: 1.4;
+      margin-bottom: 20px;
+      padding: 0 10px;
+    }
+
+    /* ----- Buttons ----- */
+    .btn-dark {
+      width: 100%;
+      background: #0d0d0d;
+      border: 1px solid #222;
+      color: #ffffff;
+      padding: 16px;
+      border-radius: 40px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      transition: 0.2s;
+      box-shadow: inset 0 1px 1px rgba(255,255,255,0.05);
+    }
+
+    .btn-dark:hover {
+      background: #1a1a1a;
+      border-color: #e11b22;
+    }
+
+    .btn-red {
+      width: 100%;
+      background: linear-gradient(90deg, #b80f16 0%, #e11b22 100%);
+      border: none;
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between; /* Left aur Right content ko separate karta hai */
+      align-items: center;
+      transition: 0.2s;
+      box-shadow: 0 8px 25px rgba(225, 27, 34, 0.35);
+      margin: 4px 0;
+    }
+
+    .btn-red:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(225, 27, 34, 0.55);
+    }
+
+    .wa-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wa-left i {
+      font-size: 1.6rem;
+    }
+
+    .wa-circle {
+      width: 24px;
+      height: 24px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .wa-circle::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    /* ----- List Items ----- */
+    .list-item {
+      width: 100%;
+      background: #0a0a0a;
+      border: 1px solid #1a1a1a;
+      border-radius: 40px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #e0e0e0;
+    }
+
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      background: #e11b22; /* Red check */
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 0.7rem;
+      box-shadow: 0 0 10px rgba(225, 27, 34, 0.5);
+    }
+
+    .list-item .highlight-text {
+      color: #fff;
+    }
+    
+    .list-item .dim-text {
+      color: #888;
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    /* ----- Phone Number Footer ----- */
+    .phone-footer {
+      margin-top: 10px;
+      width: 100%;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ccc;
+      display: flex;
+      justify-content: space-between; /* Text ko left, icon ko right push karega */
+      align-items: center;
+      background: #111;
+      padding: 12px 20px;
+      border-radius: 40px;
+      border: 1px solid #222;
+    }
+    
+    .phone-footer i {
+      color: #e11b22;
+      font-size: 1.2rem;
+      /* 90 degree rotate aur size adjust */
+      transform: rotate(90deg);
+      /* Agar aur zyada right chahiye toh margin-right add kar sakte hain */
+      margin-right: 2px; 
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    
+    <!-- Logo Image -->
+    <div class="logo-box">
+      <img src="https://i.postimg.cc/JnWyBp08/profit-edget.jpg" alt="Profit Edge Logo">
+    </div>
+
+    <!-- Title & Subtitle -->
+    <h1 class="hero-title">Trade With <span>Profit Edge</span></h1>
+    <p class="hero-subtitle">We provide premium forex signals & mentorship with Malik Danish Ali. Join our live sessions Monday to Friday.</p>
+
+    <!-- Dark Button -->
+    <a href="https://wa.me/923361112960?text=Hi%2C%20I%20want%20to%20join%20the%202X%20Challenge." target="_blank" class="btn-dark">
+      <span>🔥</span> Join the 2X Challenge
+    </a>
+
+    <!-- Big Red Button -->
+    <a href="https://wa.me/923361112960?text=Hi%2C%20I%20want%20to%20join%20the%20WhatsApp%20Channel." target="_blank" class="btn-red">
+      <div class="wa-left">
+        <i class="fab fa-whatsapp"></i>
+        <span>👉 Join WhatsApp Channel</span>
+      </div>
+      <div class="wa-circle"></div>
+    </a>
+
+    <!-- List Items -->
+    <div class="list-item">
+      <div class="check-icon"><i class="fas fa-check"></i></div>
+      <span class="highlight-text">Premium Signals</span>
+    </div>
+
+    <div class="list-item">
+      <div class="check-icon"><i class="fas fa-check"></i></div>
+      <span class="highlight-text">Mentorship &amp; Risk Management</span>
+    </div>
+
+    <div class="list-item">
+      <div class="check-icon"><i class="fas fa-check"></i></div>
+      <span class="highlight-text">Community <span class="dim-text">• 4.9K+ Followers</span></span>
+    </div>
+
+    <!-- Footer Contact / Number with Rotated Icon -->
+    <div class="phone-footer">
+      <span>0336 1112960</span>
+      <i class="fas fa-phone-alt"></i>
+    </div>
+
+  </div>
+
+</body>
+</html>
