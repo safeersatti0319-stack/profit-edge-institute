@@ -23,28 +23,38 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 16px;
+      padding: 24px 16px;
       /* Background subtle red glows */
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(225, 27, 34, 0.08) 0%, transparent 60%),
         radial-gradient(circle at 100% 100%, rgba(225, 27, 34, 0.05) 0%, transparent 50%);
+      background-attachment: fixed;
     }
 
+    /* Main Container - Makes it look like a premium card on PC */
     .main-container {
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 16px;
+      
+      /* PC ke liye card look */
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 36px;
+      padding: 36px 28px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(225, 27, 34, 0.05);
     }
 
     /* ----- Top Logo Image ----- */
     .logo-box {
-      width: 180px;
-      height: 180px;
-      margin-top: 10px;
-      margin-bottom: 10px;
+      width: 150px;
+      height: 150px;
+      margin-bottom: 8px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -54,7 +64,6 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      /* Red glow matching theme */
       filter: drop-shadow(0 0 15px rgba(225, 27, 34, 0.4)); 
       border-radius: 50%;
     }
@@ -66,18 +75,19 @@
       letter-spacing: -0.5px;
       text-align: center;
       margin-bottom: 8px;
+      line-height: 1.2;
     }
 
     .hero-title span {
-      color: #e11b22; /* Brand Red */
+      color: #e11b22;
     }
 
     .hero-subtitle {
       font-size: 0.95rem;
       color: #a0a0a0;
       text-align: center;
-      line-height: 1.4;
-      margin-bottom: 20px;
+      line-height: 1.5;
+      margin-bottom: 24px;
       padding: 0 10px;
     }
 
@@ -104,6 +114,7 @@
     .btn-dark:hover {
       background: #1a1a1a;
       border-color: #e11b22;
+      transform: translateY(-1px);
     }
 
     .btn-red {
@@ -117,7 +128,7 @@
       font-weight: 700;
       text-decoration: none;
       display: flex;
-      justify-content: space-between; /* Left aur Right content ko separate karta hai */
+      justify-content: space-between;
       align-items: center;
       transition: 0.2s;
       box-shadow: 0 8px 25px rgba(225, 27, 34, 0.35);
@@ -126,7 +137,7 @@
 
     .btn-red:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(225, 27, 34, 0.55);
+      box-shadow: 0 12px 35px rgba(225, 27, 34, 0.55);
     }
 
     .wa-left {
@@ -170,12 +181,17 @@
       font-size: 0.95rem;
       font-weight: 600;
       color: #e0e0e0;
+      transition: 0.2s;
+    }
+
+    .list-item:hover {
+      border-color: rgba(225, 27, 34, 0.3);
     }
 
     .check-icon {
       width: 22px;
       height: 22px;
-      background: #e11b22; /* Red check */
+      background: #e11b22;
       border-radius: 50%;
       display: flex;
       justify-content: center;
@@ -183,6 +199,7 @@
       color: #fff;
       font-size: 0.7rem;
       box-shadow: 0 0 10px rgba(225, 27, 34, 0.5);
+      flex-shrink: 0;
     }
 
     .list-item .highlight-text {
@@ -203,21 +220,65 @@
       font-weight: 600;
       color: #ccc;
       display: flex;
-      justify-content: space-between; /* Text ko left, icon ko right push karega */
+      justify-content: space-between;
       align-items: center;
       background: #111;
       padding: 12px 20px;
       border-radius: 40px;
       border: 1px solid #222;
+      transition: 0.2s;
+    }
+
+    .phone-footer:hover {
+      border-color: #e11b22;
+      background: #1a1a1a;
     }
     
     .phone-footer i {
       color: #e11b22;
       font-size: 1.2rem;
-      /* 90 degree rotate aur size adjust */
       transform: rotate(90deg);
-      /* Agar aur zyada right chahiye toh margin-right add kar sakte hain */
       margin-right: 2px; 
+    }
+
+    /* ----- RESPONSIVE (Mobile Adjustments) ----- */
+    @media (max-width: 480px) {
+      body {
+        padding: 12px;
+      }
+
+      .main-container {
+        padding: 24px 18px;
+        border-radius: 28px;
+        /* Mobile pe card look halka sa rakha hai */
+        background: rgba(10, 10, 10, 0.4);
+        box-shadow: none;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+
+      .logo-box {
+        width: 130px;
+        height: 130px;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .btn-red {
+        font-size: 1rem;
+        padding: 14px 18px;
+      }
+
+      .btn-dark {
+        font-size: 0.95rem;
+        padding: 14px;
+      }
     }
   </style>
 </head>
